@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Add network permissions for your Flutter app -->
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <!-- Allow arbitrary loads (HTTP) if needed -->
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+        
+        <!-- Allow arbitrary loads in web content (WebView) if needed -->
+        <key>NSAllowsArbitraryLoadsInWebContent</key>
+        <true/>
+        
+        <!-- Optionally, specify exceptions for specific domains (recommended) -->
+        <key>NSExceptionDomains</key>
+        <dict>
+            <!-- Example: Allowing access to a specific domain -->
+            <key>example.com</key>
+            <dict>
+                <!-- Allow HTTP connections (if needed) -->
+                <key>NSIncludesSubdomains</key>
+                <true/>
+                <key>NSExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+                
+                <!-- Allow specific ports if necessary -->
+                <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+                <key>NSTemporaryExceptionMinimumTLSVersion</key>
+                <string>TLSv1.0</string>
+            </dict>
+            
+            <!-- Add more domains and exceptions as needed -->
+        </dict>
+    </dict>
+    
+    <!-- Rest of your Info.plist configuration -->
+    <key>CFBundleDevelopmentRegion</key>
+    <string>$(DEVELOPMENT_LANGUAGE)</string>
+    <!-- ... (rest of the Info.plist) ... -->
+</dict>
+</plist>
